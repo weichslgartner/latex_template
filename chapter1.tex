@@ -1,0 +1,78 @@
+\chapter{First Chapter}\label{sec:chap1}
+
+This is \cref{sec:chap1}.
+
+
+\begin{figure}
+	\centering	
+	
+	\input{plot/plot}
+	\caption{Development of processor architectures over the last decades. While the frequency and the power have saturated, the number of transistors still increases exponentially and performance gains result mainly of an increased core count~(\cf \cite{batten2014energy}; plotted with data from \cite{karlrupp}). } %https://www.karlrupp.net/2015/06/40-years-of-microprocessor-trend-data/
+	\label{fig:chart}
+\end{figure}
+
+Introduction with Moore's law and ever increasing transistor density as shown in \cref{fig:chart}.
+
+\section{Equations}
+
+\begin{align}
+	\wcet &= 4*\period \label{eq:wcet}\\
+	\period &= \frac{1}{\freq}
+\end{align}
+
+Described in \cref{eq:wcet}.
+
+\section{Use of SI Units}
+$\LW= \SI{32}{\bit}$, $\rdelay = \SI{10}{\nano \second}$
+
+\section{Use of Tables}
+
+\ctable[
+caption = {Overview of frameworks/projects dealing with he\-tero\-ge\-ne\-ous many-core architectures.},
+label=tab:hetmanycore,
+width = 1.0\textwidth,
+pos = ht, % here, top
+%doinside = \small,
+center
+]{ccccccc}{}
+{  
+	\FL % first line
+	methodology & scope & properties & language & architecture \ML % middle line
+	method 1 & small scope & security, safety & C++ & GPU
+ \LL % last line
+}
+\Cref{tab:hetmanycore} shows an overview of frameworks. As can be seen in \cref{tab:hetmanycore}.
+
+\section{Use of Listing}
+	\lstset{basicstyle=\ttfamily}
+\lstinputlisting[language=Python]{source_code/python_source.py}
+
+
+\section{Use of Algorithms}
+
+\begin{algorithm}
+	\DontPrintSemicolon
+	\KwIn{A sequence of integers $\langle a_1, a_2, \ldots, a_n \rangle$}
+	\KwOut{The index of first location witht he same value as in a previous location in the sequence}
+	$location \gets 0$\;
+	$i \gets 2$\;
+	\While{$i \leq n \land location = 0$}{
+		$j \gets 1$\;
+		\While{$j < i \land location = 0$}{
+			% The "l" before the If makes it so it does not expand to a second line
+			\lIf{$a_i = a_j$}{
+				$location \gets i$\;
+			}
+			\lElse{
+				$j \gets j + 1$\;
+			}
+		}
+		$i \gets i + 1$\;
+	}
+	\Return{location}\;
+	\caption{{\sc FindDuplicate2}}
+	\label{algo:duplicate2}
+\end{algorithm}
+
+\section{Acronyms}
+\ac{RM}

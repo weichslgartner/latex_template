@@ -1,0 +1,34 @@
+	\begin{tikzpicture}%,pin distance=0.35cm]
+	\pgfplotsset{every axis legend/.append style={ at={(1.02,1)}, anchor=north west}}
+	\begin{axis}
+	[ /pgf/number format/.cd,
+	1000 sep={},
+	xlabel={Year},
+	ylabel={Number},
+	ymode=log,
+	ymin =0,
+	]%
+	
+	\addplot+[mark=+,only marks,cbred,mark options={scale=0.8,solid}]
+	table[x=year,y=transistors]
+	{plot/40years-transistors.dat}; 
+	
+	\addplot+[only marks,mark=o,mark options={scale=0.8,solid}, black]
+	table[x=year,y=specint]
+	{plot/40years-specint.dat};
+	\addplot+[only marks,mark=x,mark options={scale=0.8,solid},cbblue]
+	table[x=year,y=freq]
+	{plot/40years-frequency.dat};
+	
+	
+	\addplot+[only marks,mark options={scale=0.8,solid},cborange]
+	table[x=year,y=watts]
+	{plot/40years-watts.dat};
+	
+	\addplot+[only marks,color=cbblack,mark options={scale=0.8,solid}]
+	table[x=year,y=number]
+	{plot/40years-cores.dat};
+	
+	\legend{transistors [\#*1000], performance [SPECint], power [\si{\watt}], frequency [\si{\mega\hertz}], cores [\#]}	
+	\end{axis}		
+	\end{tikzpicture}

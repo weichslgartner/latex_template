@@ -1,0 +1,94 @@
+\documentclass[]{report}
+
+\usepackage{pgf}
+\usepackage{amsmath}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,patterns,backgrounds,shapes,shadows}
+%uncomment to externalize figures
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=externalfigures/,figure name=plot_sec\thesubsection_no,]
+\usepackage{pgfplots}
+\usepackage{ctable}
+\usepackage{listofsymbols}
+\usepackage[binary-units=true]{siunitx}
+\sisetup{group-digits=integer,group-separator = {,},group-minimum-digits={4}}
+\usepackage{xspace}
+\usepackage{multicol} % longer listings in two columns
+\usepackage[
+colorlinks=true,
+linkcolor=black,
+citecolor=black,
+filecolor=black,
+urlcolor=black,
+bookmarks=true,
+bookmarksopen=true,
+bookmarksopenlevel=3,
+plainpages=false,
+pdfpagelabels=true,
+hypertexnames=true]{hyperref} % load after varioref and before cleveref
+\usepackage[capitalize]{cleveref}
+\usepackage{listings}
+\renewcommand{\ttdefault}{pcr}
+\newlength{\savedparindent}
+% \setlength{\savedparindent}{\parindent}
+\setlength{\savedparindent}{1.5em}
+\lstset{
+	language=,
+	captionpos=b,
+	% text styles
+	basicstyle=\ttfamily,
+	keywordstyle=\color{keyword_color}\bfseries,
+	commentstyle=\color{comment_color},
+	stringstyle=\color{string_color},
+	% numbers
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	% frame
+	frame=lines,
+	framerule=1pt,
+	% rulecolor=\color{armblue},
+	% box
+	breaklines=true,
+	tabsize=2,
+%	backgroundcolor=\color{whitesmoke},
+	xleftmargin=\savedparindent,
+	framexleftmargin=\savedparindent,
+}
+\usepackage{acronym} 
+
+
+\def\registered{\circledR}
+\def\tm{\leavevmode\hbox{$\rm {}^{TM}$}}
+\newcommand{\TODO}[1]{{\color{red}#1}}
+
+
+\input{acropatch.tex} 
+\input{symbol}
+\input{colors}
+\input{macros}
+\input{pgfplotstuff.tex}
+
+
+% Title Page
+\title{Awesome Title}
+\author{Dr. Strangelove}
+
+
+
+
+
+
+\begin{document}
+
+\maketitle
+\section*{List of Acronyms}
+\input{acronyms}
+\input{abstract}
+\input{chapter1}
+
+\bibliographystyle{alpha}
+\scriptsize
+\bibliography{literature}
+\end{document}          
